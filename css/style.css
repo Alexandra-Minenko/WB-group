@@ -22,10 +22,12 @@ a:hover {text-decoration:none;}
 /*@media (min-width: 1550px) and (max-width: 10000px) {}*/
 body {
 	overflow-x: hidden;
+	position: relative;
+	font-family: 'Montserrat', sans-serif;
 }
 #wrapper {
 	display: block;
-	width: 1900px;
+	width: 100%;
 	height:100%;
 	margin: 0 auto;
 }
@@ -44,22 +46,77 @@ body {
 
 /* header */
 header {
-	height: 965px;
-	margin: auto 0;
-	width: 100%;
-	background: url(../images/bg_header.png) 50% 50% no-repeat;
-	background-size: cover;	
+	overflow: hidden;
+	min-height: 885px;
+	max-height: 1400px;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	background: #ffd630;
+	padding: 70px 0 0 0;
+	box-sizing: border-box;
+}
+header .white_block {
+	height: calc(100vh - 70px - 80px);
+	min-height: calc(885px - 70px - 80px);
+	max-height: calc(1400px - 70px - 80px);
+	width: calc(100% - 70px);
+}
+header .layout {
+	position: relative;
+	z-index: 4;
+	padding-left: 120px;
+}
+header .decor {
+	position: absolute;
+	display: block;
+}
+header .decor-1 {
+	left: 0px;
+	top: -115px;
+	transform: rotate(-140deg);
+}
+header .decor-2 {
+	left: 51%;
+	top: -35px;
+	transform: rotate(80deg);
+}
+header .decor-3 {
+	right: -8%;
+	top: 203px;
+}
+header .decor-4 {
+	left: 18%;
+	bottom: 10px;
+}
+header .castle {
+	height: calc(100vh * 0.8);
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+}
+header .white_block {
+	position: relative;
+	background: #fff;
+	z-index: 2;
+}
+header .ship {
+	position: absolute;
+	z-index: 5;
+	height: 109px;
+	top: -15px;
+	left: 10px;
 }
 header .contacts {
-	padding: 104px 0 0;
+	padding: 34px 0 0;
 	display: flex;
 	justify-content: flex-start;
 }
 header	.contacts .logo h2{
 	font-weight: bold;
 	font-size: 59px;
-	border-right: solid #000 6px;
 	padding: 0 25px 0 0;
+	line-height: 60px;
 }
 header	.contacts .logo h2 span {
 	font-size: 46px;
@@ -69,21 +126,26 @@ header	.contacts .phone-mail {
 	flex-direction: column;
 	justify-content: center;
 	padding: 0 0 0 25px;
+	border-left: solid #000 6px;
 }
 header	.contacts .phone-mail p {
 	display: flex;
-	line-height: 1.5;
+	line-height: 2;
 	font-size: 19px;
 	align-items: center;
 }
-header	.contacts .phone-mail img {
-	margin: 0 5px 0 0;
+header	.contacts .phone-mail svg {
+	width: 22px;
+	margin: 0 10px 0 0;
 }
 header	.contacts .phone-mail a {
 	color: #000;
 }
 header	.main-info {
-	margin: 200px 0 0;
+	display: block;
+	position: relative;
+	z-index: 4;
+	margin: 200px 0 0 0;
 }
 header	.main-info	h1 {
 	font-weight: bold;
@@ -91,6 +153,9 @@ header	.main-info	h1 {
 	color: #1c537c;
 }
 header	.main-info	ul {
+	display: block;
+	position: relative;
+	z-index: 4;
 	margin:85px 0 0;
 	padding:0 0 0 17px;
 	font-size: 20px;
@@ -115,6 +180,7 @@ main {
 }
 main #company,
 main #work {
+	position: relative;
 	background: #eee;
 }
 main #company .layout_main,
@@ -143,6 +209,13 @@ main #work figure div {
 	height: 363px;
 	background: #ccc;
 }
+main #company figure div iframe,
+main #work figure div iframe,
+main #vng-pmg div iframe,
+main #business div iframe{
+	width: 650px;
+	height: 363px;
+}
 main #company .text,
 main #work .text {
 	display: flex;
@@ -162,7 +235,9 @@ main #work .text p {
 main #company .text p span,
 main #work .text p span {
 	font-weight: bold;
-	font-size: 20px; 
+	font-size: 20px;
+	position: relative;
+	z-index: 2; 
 }
 main #company .text p:nth-child(2) {
 	font-weight: bold;
@@ -176,6 +251,7 @@ main #work .text ul {
 	margin-bottom: 70px;
 	line-height: 2;
 	font-size: 18px;
+	z-index: 2;
 }
 main #work .text ul {
 	margin-bottom: 0;
@@ -183,18 +259,21 @@ main #work .text ul {
 main #company img {
 	display: block;
 	position: absolute;
+	z-index: 1;
 	bottom: 0;
-	right: 0;	
+	right: 1%;	
 }
 main #work img {
 	display: block;
 	position: absolute;
 	bottom: 0;
-	left: 45%;
+	left: 48%;
+	transform: rotate(-150deg);
 }
 main #vng-pmg,
 main #business {
-	background: fff;
+	position: relative;
+	background: #fff;
 }
 main #vng-pmg .layout_main,
 main #business .layout_main{
@@ -233,12 +312,15 @@ main #business .text ul {
 	padding-left: 18px;
 	line-height: 2;
 	font-size: 18px;
+	z-index: 2;
 }
 main #business img {
-	left: -180px;
+	left: -2%;
 	position: absolute;
 	display: block;
-	bottom: 0;	
+	bottom: 0;
+	z-index: 1;
+	transform: rotate(100deg);	
 }
 main #vng-pmg div,
 main #business div {
@@ -252,22 +334,29 @@ main #business div {
 }
 main .houses img {
 	display: block;
+	position: relative;
+	z-index: 3;
+	width: 100%;
 	margin: 0 auto;
 }
 /* footer */
-footer {	
+footer {
 	position: relative;
+	overflow: hidden;
+	background: #303134;
 	padding: 150px 0 302px 0;
+	position: relative;
 	box-sizing: border-box;
-	height: 651px;
-	width: 100%;
-	background: url(../images/bg_footer.png) 50% 50% no-repeat;
 }
 footer .layout {
+	position: relative;
+	z-index: 2;
 	display: flex;
 	justify-content: space-around;
 }
 footer .phone-mail_fr {
+	position: relative;
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -285,9 +374,10 @@ footer .phone-mail_fr p {
 	line-height: 2;
 	align-items: center;
 }
-footer .phone-mail_fr p img {
+footer .phone-mail_fr p svg {
+	fill: #fff;
 	margin: 0 30px 0 0;
-	width: 33px;
+	width: 30px;
 }
 footer .phone-mail_fr p a {
 	color: #fff;
@@ -298,6 +388,8 @@ footer .social {
 	justify-content: flex-start;
 }
 footer .social ul {
+	position: relative;
+	z-index: 2;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -311,6 +403,19 @@ footer .social ul li {
 footer .social ul li a img {
 	width: 197px;
 }
+footer .decor {
+	display: block;
+	position: absolute;
+}
+footer .decor-1 {
+	top: 70px;
+	left: 1%;
+}
+footer .decor-2 {
+	bottom: 95px;
+	right: 10%;
+	transform: rotate(170deg);
+}
 .scrollup{
 	width:40px;
 	height:40px;
@@ -323,7 +428,56 @@ footer .social ul li a img {
 	background: url(../images/icon_top.png) no-repeat;
 	}
 /********************************************************/
-@media (min-width: 1218px) and (max-width: 1550px) {
+@media (min-width: 1350px) and (max-width: 1550px) {
+	#wrapper {
+		width: 100%;
+	}
+	.layout {
+		width: 1340px;
+	}
+	.layout_main {
+		width: 1240px;
+	}
+	header {
+		min-height: 670px;
+	}
+	header .white_block {
+		height: calc(100vh - 70px - 80px);
+		min-height: calc(670px - 70px - 80px);
+	}
+	header .castle {
+		height: calc(100vh * 0.8);
+	}
+	header	.contacts .logo h2 {
+		line-height: 60px;
+	}
+	header	.contacts .phone-mail p {
+		line-height: 2;
+	}
+	header	.main-info {
+		margin: calc(100vh * 0.15) 0 0 0;
+	}
+	header	.main-info	ul {
+		display: block;
+		position: relative;
+		z-index: 4;
+		margin:50px 0 0;
+		padding:0 0 0 17px;
+		font-size: 20px;
+		color: #1c537c;
+	}
+	footer .decor-1 {
+		top: 70px;
+		left: -1%;
+	}
+	footer .decor-2 {
+		bottom: 95px;
+		right: 0;
+		transform: rotate(170deg);
+	}
+}
+/********************************************************/
+@media (min-width: 1218px) and (max-width: 1350px) {
 	#wrapper {
 		width: 100%;
 	}
@@ -334,10 +488,23 @@ footer .social ul li a img {
 		width: 1100px;
 	}
 	header {
-		height: 800px;
+		min-height: 670px;
+	}
+	header .white_block {
+		height: calc(100vh - 70px - 80px);
+		min-height: calc(670px - 70px - 80px);
+	}
+	header	.contacts .phone-mail p {
+		line-height: 2;
 	}
 	header	.main-info {
-		margin: 120px 0 0;
+		margin: calc(100vh * 0.12) 0 0 0;
+	}
+	header	.main-info ul {
+		margin-top: calc(100vh * 0.1)
+	}
+	header .castle {
+		height: calc(100vh * 0.7);
 	}
 	main #company .text,
 	main #work .text,
@@ -352,8 +519,12 @@ footer .social ul li a img {
 		width: 547px;
 		height: 305px;
 	}
-	footer {
-		height: 350px;
+	main #company figure div iframe,
+	main #work figure div iframe,
+	main #vng-pmg div iframe,
+	main #business div iframe{
+		width: 547px;
+		height: 305px;
 	}
 	footer .phone-mail_fr h3 {
 		margin: 0 0 30px 0;
@@ -363,6 +534,15 @@ footer .social ul li a img {
 	}
 	footer .social ul li a img {
 		width: 160px;
+	}
+	footer .decor-1 {
+		top: 50px;
+		left: -1%;
+	}
+	footer .decor-2 {
+		bottom: 105px;
+		right: -3%;
+		transform: rotate(170deg);
 	}
 }
 /********************************************************/
@@ -377,16 +557,25 @@ footer .social ul li a img {
 		width: 968px;
 	}
 	header {
-		height: 800px;
+		min-height: 670px;
 	}
-	header .contacts {
-		padding: 104px 0 0;
+	header .white_block {
+		height: calc(100vh - 70px - 80px);
+		min-height: calc(670px - 70px - 80px);
+	}
+	header .castle {
+		height: calc(100vh * 0.63);
+		right: -10%;
+	}
+	header .ship {
+		height: 105px;
+		top: -10px;
 	}
 	header	.main-info {
-		margin: 100px 0 0;
+		margin: calc(100vh * 0.1) 0 0;
 	}
 	header	.main-info	ul {
-		margin: 55px 0 0;
+		margin: 45px 0 0;
 	}
 	main #company .layout_main,
 	main #work .layout_main,
@@ -407,11 +596,12 @@ footer .social ul li a img {
 		width: 450px;
 		height: 251px;
 	}
-	main #company img {
-		right: -150px;	
-	}
-	footer {
-		height: 350px;
+	main #company figure div iframe,
+	main #work figure div iframe,
+	main #vng-pmg div iframe,
+	main #business div iframe{
+		width: 450px;
+		height: 251px;
 	}
 	footer .phone-mail_fr h3 {
 		margin: 0 0 30px 0;
@@ -422,6 +612,15 @@ footer .social ul li a img {
 	footer .social ul li a img {
 		width: 130px;
 	}
+	footer .decor-1 {
+		top: 50px;
+		left: -5%;
+	}
+	footer .decor-2 {
+		bottom: 10px;
+		right: -5%;
+		transform: rotate(170deg);
+	}
 }
 
 /********************************************************/
@@ -430,19 +629,42 @@ footer .social ul li a img {
 		width:100%;
 	}
 	.layout {
-		width: 757px;
+		width: 747px;
 	}
 	.layout_main {
 		width: 757px;
 	}
 	header {
-		height: 600px;
+		min-height: 670px;
 	}
-	header .contacts {
-		padding: 80px 0 0;
+	header .white_block {
+		height: calc(100vh - 70px - 80px);
+		min-height: calc(670px - 70px - 80px);
+	}
+	header .castle {
+		height: calc(100vh * 0.51);
+		right: -10%;
+	}
+	header .ship {
+		height: 105px;
+		top: -10px;
+	}
+	header	.contacts .logo h2{
+		padding: 0 20px 0 0;
+		font-size: 44px;
+		line-height: 65px;
+	}
+	header	.contacts .phone-mail {
+		border-left: solid #000 3px;
+	}
+	header	.contacts .logo h2 span {
+		font-size: 36px;
 	}
 	header	.main-info {
-		margin: 60px 0 0;
+		margin: calc(100vh * 0.15) 0 55px;
+	}
+	header	.main-info	h1 {
+		font-size: 45px;
 	}
 	header	.main-info	ul {
 		margin: 30px 0 0;
@@ -468,13 +690,17 @@ footer .social ul li a img {
 	main #work .text {
 		margin-bottom: 100px;
 	}
-	main #company img {
-		right: -40px;
-	}
 	main #company figure div,
 	main #work figure div,
 	main #vng-pmg div,
 	main #business div {
+		width: 450px;
+		height: 251px;
+	}
+	main #company figure div iframe,
+	main #work figure div iframe,
+	main #vng-pmg div iframe,
+	main #business div iframe{
 		width: 450px;
 		height: 251px;
 	}
@@ -485,25 +711,42 @@ footer .social ul li a img {
 	main #vng-pmg div,
 	main #business div {
 		margin: 50px 0 100px;
-	} 
+	}
+	main #business img {
+		left: -30px;
+		bottom: 400px;
+	}
 	footer {
-		height: 350px;
-		padding: 50px 0 0;
+		padding: 120px 0 180px 0;
 	}
 	footer .layout {
 		justify-content: space-between;
 	}
 	footer .phone-mail_fr h3 {
-		margin: 0 0 30px 0;
+		margin-bottom: 15px;
 	}
-	footer .phone-mail_fr h3 {
-		margin: 0 0 30px 0;
+	footer .phone-mail_fr p {
+		font-size: 26px;	
+	}
+	footer .phone-mail_fr p svg {
+		width: 20px;
+		margin-right: 10px;
 	}
 	footer .social h3 {
-		margin: 0 0 45px 0;
+		margin-bottom: 15px;
 	}
 	footer .social ul li a img {
-		width: 130px;
+		width: 120px;
+		margin-right: 10px;
+	}
+	footer .decor-1 {
+		top: 50px;
+		left: -5%;
+	}
+	footer .decor-2 {
+		bottom: 10px;
+		right: -5%;
+		transform: rotate(170deg);
 	}
 }
 
@@ -519,31 +762,51 @@ footer .social ul li a img {
 		width: 590px;
 	}
 	header {
-		height: 400px;
+		min-height: 670px;
+	}
+	header .white_block {
+		height: calc(100vh - 70px - 80px);
+		min-height: calc(670px - 70px - 80px);
+	}
+	header .layout {
+		padding-left: 10px;
+	}
+	header .castle {
+		height: calc(100vh * 0.53);
+		right: -11%;
+	}
+	header .ship {
+		height: 90px;
+		top: -10px;
 	}
 	header .contacts {
-		padding: 40px 0 0;
+		padding: 20px 0 0 97px;
+	}
+	header	.contacts .phone-mail {
+		border-left: solid #000 3px;
 	}
 	header	.main-info {
-		margin: 30px 0 0;
+		margin: calc(100vh * 0.15) 0 55px;
 	}
 	header	.main-info	ul {
 		margin: 20px 0 0;
 	}
 	header	.contacts .logo h2{
-		border-right: solid #000 3px;
 		padding: 0 10px 0 0;
-		font-size: 44px;
+		font-size: 39px;
 	}
 	header	.contacts .logo h2 span {
-		font-size: 36px;
+		font-size: 34px;
 	}
 	header	.contacts .phone-mail {
 		padding: 0 0 0 10px;
 	}
+	header	.contacts .phone-mail svg {
+		width: 20px;
+	}
 	header	.main-info	h1 {
 		font-weight: bold;
-		font-size: 45px;
+		font-size: 40px;
 		color: #1c537c;
 	}
 	header	.main-info	ul {
@@ -559,9 +822,6 @@ footer .social ul li a img {
 		flex-direction: column;
 		align-items: center;
 	}
-	main #work img {
-		display: none;
-	}
 	main #company .text,
 	main #work .text,
 	main #vng-pmg .text,
@@ -570,13 +830,20 @@ footer .social ul li a img {
 		margin-top: 50px;
 		margin-bottom: 0;
 	}
-	main #company img {
-		display: none;
+	main #work .text {
+		margin-bottom: 50px;
 	}
 	main #company figure div,
 	main #work figure div,
 	main #vng-pmg div,
 	main #business div {
+		width: 450px;
+		height: 251px;
+	}
+	main #company figure div iframe,
+	main #work figure div iframe,
+	main #vng-pmg div iframe,
+	main #business div iframe{
 		width: 450px;
 		height: 251px;
 	}
@@ -587,33 +854,62 @@ footer .social ul li a img {
 	main #vng-pmg div,
 	main #business div {
 		margin: 50px 0 100px;
+	}
+	main #work img {
+		left: 2%;
+		bottom: 0;
+	} 
+	main #business img {
+		left: -30px;
+		bottom: 400px;
 	} 
 	footer {
-		height: 250px;
-		padding: 40px 0 0;
+		padding: 120px 0 180px 0;
 	}
 	footer .layout {
-		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+
+	}
+	footer .phone-mail_fr {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	footer .phone-mail_fr h3 {
 		margin-bottom: 15px;
-		font-size: 24px;
 	}
 	footer .phone-mail_fr p {
-		font-size: 16px;
-		line-height: 1.5;
+		font-size: 26px;	
 	}
-	footer .phone-mail_fr p img {
+	footer .phone-mail_fr p svg {
 		width: 20px;
 		margin-right: 10px;
 	}
+	footer .social {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	footer .social h3 {
-		font-size: 24px;
-		margin: 0 0 0 0;
+		margin-bottom: 15px;
 	}
 	footer .social ul li a img {
-		width: 100px;
+		width: 120px;
 		margin-right: 10px;
+	}
+	footer .decor-1 {
+		top: 50px;
+		left: -5%;
+	}
+	footer .decor-2 {
+		bottom: 10px;
+		right: -5%;
+		transform: rotate(170deg);
+	}
+	.scrollup{
+	right:20px;
 	}
 }
 
@@ -629,34 +925,62 @@ footer .social ul li a img {
 		width: 100%;
 	}
 	header {
-		height: 300px;
+		min-height: 638px;
+		padding: 40px 20px 0 0;
+	}
+	header .white_block {
+		height: calc(100vh - 40px - 40px);
+		min-height: calc(638px - 70px - 80px);
+		width: calc(100% - 20px);
+	}
+	header .decor-1 {
+		left: -40%;
+		top: 0;
+		transform: rotate(-140deg);
+	}
+	header .decor-2 {
+		left: 56%;
+		top: -35px;
+		transform: rotate(80deg);
+	}
+	header .decor-3 {
+		right: -38%;
+		top: 203px;
+	}
+	header .decor-4 {
+		left: 18%;
+		bottom: -50%;
+	}
+	header .layout {
+		padding-left: 0;
+	}
+	header .castle {
+		height: calc(100vh * 0.4);
+		right: 0;
+	}
+	header .ship {
+		height: 80px;
+		top: -10px;
+		left: 20px;
 	}
 	header .contacts {
-		padding: 30px 0 0 20px;
+		padding: 15px 0 0 100px;
 	}
 	header	.contacts .logo h2{
-		font-size: 27px;
-		border-right: solid #000 3px;
-		padding: 0 10px 0 0;
+		font-size: 38px;
+		border-right: none;
+		padding: 0 7px 0 0;
+		line-height: 50px;
 	}
 	header	.contacts .logo h2 span {
-		font-size: 21px;
+		font-size: 28px;
 	}
 	header	.contacts .phone-mail {
-		padding: 0 0 0 10px;
-	}
-	header	.contacts .phone-mail p {
-		line-height: 1.2;
-		font-size: 14px;
-	}
-	header	.contacts .phone-mail img {
-		height: 10px;
+		display: none;
 	}
 	header	.main-info {
-		margin: 20px 0 0 20px;
-	}
-	header	.main-info	ul {
-		margin: 20px 0 0;
+		height: calc(100vh - 40px - 40px);
+		margin: calc(100vh * 0.1) 0 0 20px;
 	}
 	header	.main-info	h1 {
 		font-size: 26px;
@@ -664,10 +988,10 @@ footer .social ul li a img {
 	header	.main-info	ul {
 		margin:20px 0 0;
 		padding:0 0 0 15px;
-		font-size: 16px;
+		font-size: 14px;
 	}
 	header	.main-info	ul li {
-		line-height: 1.2;
+		line-height: 2;
 	}
 	main #company .layout_main,
 	main #work .layout_main,
@@ -675,9 +999,6 @@ footer .social ul li a img {
 	main #business .layout_main{
 		flex-direction: column;
 		align-items: center;
-	}
-	main #work img {
-		display: none;
 	}
 	main #company .text,
 	main #work .text,
@@ -691,7 +1012,7 @@ footer .social ul li a img {
 	main #work figure figcaption,
 	main #vng-pmg .text h3,
 	main #business .text h3 {
-		font-size: 30px;
+		font-size: 26px;
 		margin: 0 0 30px;
 	}
 	main #company .text p,
@@ -702,11 +1023,18 @@ footer .social ul li a img {
 	main #business .text p,
 	main #vng-pmg .text ul,
 	main #business .text ul {
-		line-height: 1.2;
 		margin: 0 0 0;
+		font-size: 14px;
 	}
-	main #company img {
-		display: none;
+	main #company .text p span,
+	main #work .text p span,
+	main #company .text ul span,
+	main #work .text ul span,
+	main #vng-pmg .text p span,
+	main #business .text p span,
+	main #vng-pmg .text ul span,
+	main #business .text ul span {
+		font-size: 15px;
 	}
 	main #company figure div,
 	main #work figure div,
@@ -716,6 +1044,13 @@ footer .social ul li a img {
 		height: 162px;
 		margin: 0;
 	}
+	main #company figure div iframe,
+	main #work figure div iframe,
+	main #vng-pmg div iframe,
+	main #business div iframe{
+		width: 290px;
+		height: 162px;
+	}
 	main #company figure,
 	main #work figure {
 		margin: 30px 0 0;
@@ -723,23 +1058,30 @@ footer .social ul li a img {
 	main #vng-pmg div,
 	main #business div {
 		margin: 30px 0 50px;
+	}
+		main #work img {
+		left: 2%;
+		bottom: 0;
+	}
+	main #business img {
+		left: 0;
+		bottom: 250px;
 	} 
 	footer {
-		height: 300px;
-		padding: 30px 0 0;
+		padding: 80px 0 100px 0;
 	}
 	footer .layout {
 		flex-direction: column;
 	}
 	footer .phone-mail_fr h3 {
 		margin-bottom: 15px;
-		font-size: 24px;
+		font-size: 26px;
 	}
 	footer .phone-mail_fr p {
-		font-size: 16px;
-		line-height: 1.5;
+		font-size: 14px;
+		line-height: 2;
 	}
-	footer .phone-mail_fr p img {
+	footer .phone-mail_fr p svg {
 		width: 20px;
 		margin-right: 10px;
 	}
@@ -755,5 +1097,17 @@ footer .social ul li a img {
 	footer .social ul li a img {
 		width: 100px;
 		margin-right: 10px;
+	}
+	footer .decor-1 {
+		top: -2%;
+		left: -15%;
+	}
+	footer .decor-2 {
+		bottom: 10px;
+		right: -15%;
+		transform: rotate(170deg);
+	}
+	.scrollup{
+		right:20px;
 	}
 }
