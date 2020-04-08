@@ -207,7 +207,6 @@ main #company figure div,
 main #work figure div {
 	width: 650px;
 	height: 363px;
-	background: #ccc;
 }
 main #company figure div iframe,
 main #work figure div iframe,
@@ -372,7 +371,6 @@ footer .phone-mail_fr p {
 	display: flex;
 	font-size: 30px;
 	line-height: 2;
-	align-items: center;
 }
 footer .phone-mail_fr p svg {
 	fill: #fff;
@@ -726,7 +724,7 @@ footer .decor-2 {
 		margin-bottom: 15px;
 	}
 	footer .phone-mail_fr p {
-		font-size: 26px;	
+		font-size: 22px;	
 	}
 	footer .phone-mail_fr p svg {
 		width: 20px;
@@ -878,6 +876,11 @@ footer .decor-2 {
 	}
 	footer .phone-mail_fr h3 {
 		margin-bottom: 15px;
+	}
+	footer .phone-mail_fr div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	footer .phone-mail_fr p {
 		font-size: 26px;	
@@ -1076,6 +1079,11 @@ footer .decor-2 {
 	footer .phone-mail_fr h3 {
 		margin-bottom: 15px;
 		font-size: 26px;
+	}
+	footer .phone-mail_fr div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	footer .phone-mail_fr p {
 		font-size: 14px;
