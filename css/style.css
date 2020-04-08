@@ -883,6 +883,8 @@ footer .decor-2 {
 		align-items: center;
 	}
 	footer .phone-mail_fr p {
+		display: flex;
+		align-items: center;
 		font-size: 26px;	
 	}
 	footer .phone-mail_fr p svg {
